@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            background: #000;
+        }
+        body::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            background: url(images/hero-img.jpg);
+            background-position: center;
+        }
+        nav{
+            position: fixed;
+            z-index: 1;
+            padding: 50px 100px;
+        }
+        nav a img{
+            width: 160px;
+            top: 50%;
+        }
+        .home-page{
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            width: 430px;
+            padding: 60px;
+            border-radius: 4px;
+            background: rgba(0, 0,0, 0.75);
+            transform: translate(-50%, -50%);
+        }
+        .home-page h2{
+            color: #fff;
+            font-size: 2rem;
+        }
+        .home-page form{
+            margin: 25px 0 65px;
+        }
+        form .home-control{
+            position: relative;
+            height: 50px;
+            margin-bottom: 16px;
+        }
+        .home-control input{
+            height: 100%;
+            width: 100%;
+            background: #333;
+            outline: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 4px;
+            padding: 0 20px;
+        }
+        .home-control input:is(:focus, :valid){
+            padding: 16px 20px 0;
+            background: #444;
+        }
+        .home-control label{
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            color: #8c8c8c;
+            pointer-events: none;
+            font-size: 1rem;
+            transform: translateY(-50%);
+            transition: all 0.5 ease;
+        }
+        .home-control input:is(:focus, :valid) ~ label{
+            font-size: 0.75rem;
+            transform: translateY(-150%);
+        }
+        form button {
+            width: 100%;
+            padding: 16px 0;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 4px;
+            background: #e50914;
+            margin: 25px 0px 10px;
+            transition: 0.1s ease;
+            cursor: pointer;
+        }
+        form button:hover {
+            background:#e50914;
+        }
+        form .form-help{
+            display: flex;
+            justify-content: space-between;
+        }
+        form .remember-me {
+            display: flex;
+        }
+        form .remember-me input{
+            margin-right: 5px;
+            accent-color: #b3b3b3;
+        }
+        .form-help :where(label, p, small, a){
+            color: #b3b3b3;
+        }
+        p{
+            color: white;
+            margin: 30px 0px;
+        }
+        p a{
+            color: white;
+            margin-left: 1px;
+            text-decoration: none;
+        }
+        p a:hover{
+            text-decoration: underline;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+         small{
+            color: white;
+            margin-top: 50px;
+            
+
+        }
+        small a{
+            color: #0071eb;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 740px){
+            body::before {
+                display: none;
+            }
+            nav, .help-control {
+                padding: 20px;
+            }
+            nav a img {
+                width:140px;
+                
+            }
+            .help-control {
+                top: 43%;
+                width: 100%;
+            }
+            .help-control form {
+                margin: 25px 0px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+    <a href="index.html"> <img src="images/logo.svg" alt="logo"></a>
+    </nav>
+    <div class="home-page">
+        <h2>Sign In</h2>
+        <form action="#">
+            <div class="home-control">
+                <input type="text" required>
+                <label>Email or Phone Number</label>
+            </div>
+            <div class="home-control">
+                <input type="Password" required>
+                <label>Password</label>
+            </div>
+            <button type="submit">Sign in</button>
+            <div class="form-help">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <a href="#">Need Help?</a>
+            </div>
+        </form>
+        <p>New to Netflix? <a href="#">Sign Up now</a></p>
+        <small>
+            This page is protected by google recaptcha to ensure you are not a bot.
+            <a href="#">Learn more</a>
+        </small>
+    </div>
+</body>
+</html>
